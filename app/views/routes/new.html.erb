@@ -1,0 +1,16 @@
+<h1>New Route</h1>
+
+<%= form_for(@route) do |form| %>
+  <%= render 'common/errors', resource: @route %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "#{@route.new_record? ? 'Create' : 'Update'}" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', routes_path %>
