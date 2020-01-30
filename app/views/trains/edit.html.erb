@@ -1,21 +1,5 @@
 <h1>Editing Train</h1>
 
-<%= form_for(@train) do |form| %>
-  <%= render 'common/errors', resource: @train %>
-
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :current_station, 'Current station' %>
-    <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "#{@train.new_record? ? 'Create' : 'Update'}" %>
-  </div>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', trains_path %>

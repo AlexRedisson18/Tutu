@@ -1,16 +1,5 @@
 <h1>New Railway Station</h1>
 
-<%= form_for(@railway_station) do |form| %>
-  <%= render 'common/errors', resource: @railway_station %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "#{@railway_station.new_record? ? 'Create' : 'Update'}" %>
-  </div>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', railway_stations_path %>
