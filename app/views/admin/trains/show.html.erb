@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+</p>
+
+<p><strong>Current station:</strong>
+  <% if @train.current_station.present? %>
+    <%= @train.current_station.title %>
+  <% else %>
+     ---
+  <% end %>
+</p>
+
+<p>
+  <strong> Carriages:</strong>
+  <ul>
+    <% @train.carriages.each do |carriage| %>
+      <li><%= link_to "Carriage № #{carriage.number}", [:admin, carriage] %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <%= link_to 'Add Carriage', new_admin_train_carriage_path(@train) %>
+</p>
+
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', admin_trains_path %>

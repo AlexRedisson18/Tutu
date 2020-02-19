@@ -10,9 +10,21 @@
   </head>
 
   <body>
+    <p id="notice" class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in?%>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <p>Account: <%= current_user.email %></p>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path %>
+    <% end %>
+
     <%= yield %>
   </body>
+
   <footer>
     <p>(c) 2020 Alexander Kitchenko</p>
   </footer>
+
 </html>
